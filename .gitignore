@@ -1,0 +1,7 @@
+#vscode stuff
+.vscode
+
+# various build products
+*.exe
+*.com
+*.o
