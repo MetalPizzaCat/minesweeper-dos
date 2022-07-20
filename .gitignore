@@ -5,3 +5,5 @@
 *.exe
 *.com
 *.o
+#compiler error files
+*.err
