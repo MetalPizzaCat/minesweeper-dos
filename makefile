@@ -1,13 +1,19 @@
 OUTPUT_NAME = msweep.com
 OUTPUT_FOLDER = ~/dosprogs
 OUTPUT_PLATFORM = DOS
+CC = owcc
+CCFLAGS = -O2 -Wall
+INCLUDE_DIRS = -I/
+SOURCE_FILES = main.c mouse.c video.c bitmap.c
 all: main
 main:
-	owcc -I/ -O2 -Wall -b $(OUTPUT_PLATFORM)  main.c -o $(OUTPUT_NAME) -v
+	$(CC) $(CCFLAGS) $(INCLUDE_DIRS) -b $(OUTPUT_PLATFORM)  $(SOURCE_FILES) -o $(OUTPUT_NAME) -v
 
 install: main
 	cp ./$(OUTPUT_NAME) $(OUTPUT_FOLDER)
+	cp ./face.bmp $(OUTPUT_FOLDER)
 
 clean:
-	rm rf ./$(OUTPUT_NAME)
-	rm rf ./main.o
+	$(RM) ./$(OUTPUT_NAME)
+	$(RM) ./*.o
+	$(RM) ./*.err
